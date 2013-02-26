@@ -33,6 +33,7 @@ Brendan Younger
 [The declarative imperative slides](http://db.cs.berkeley.edu/jmh/talks/podskeynote10.pdf)
 [Consistency analysis in Bloom](http://db.cs.berkeley.edu/papers/cidr11-bloom.pdf)
 
+[What goes around comes around overview](http://web.eecs.umich.edu/~klefevre/eecs584/Handouts/Stonebraker-Hellerstein.pdf)
 [Datomic database values](http://www.infoq.com/presentations/Datomic-Database-Value)
 
 [PaxosLease](http://arxiv.org/pdf/1209.4187.pdf)

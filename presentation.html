@@ -3,17 +3,137 @@
 <meta charset="utf-8">
 <title>The Awkward Squad</title>
 
-<!-- Your Slides -->
-<!-- One section is one slide -->
-
 <section>
-    <h1>The Awkward Squad</h1>
-    <footer>by Brendan Younger<br>brendan@brendanyounger.com</footer>
+  <h1><a href="http://en.wikipedia.org/wiki/Awkward_Squad">The Awkward Squad</a></h1>
+  <footer>by Brendan Younger<br>brendan@brendanyounger.com</footer>
 </section>
 
 <section>
-    <p>Some random text: But I've never been to the moon! You can see how I lived before I met you. Also Zoidberg.
-    I could if you hadn't turned on the light and shut off my stereo.</p>
+  <blockquote>
+    "Don't let the awkward squad fire over me."<br>
+    – Robert Burns
+  </blockquote>
+</section>
+
+<section>
+  <h3><a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/marktoberdorf/mark.pdf">Tackling the Awkward Squad</a></h3>
+  <ul class="incremental">
+    <li>IO</li>
+    <li>Foreign-language calls (<i>see IO</i>)</li>
+    <li>Concurrency/distributed computation</li>
+    <li>Exceptions/errors</li>
+    <li>State</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Haskel 1.0</h3>
+  <code><pre>main :: [Response] -> [Request]
+data Request =   ReadFile FilePath
+               | WriteFile FilePath String
+               | ....
+data Response =   RequestFailed
+                | ReadSucceeded String
+                | WriteSucceeded
+                | ...</pre></code>
+</section>
+
+<section>
+  <h3>Monads (or <a href="https://wiki.ittc.ku.edu/lambda/images/3/3b/Wadler_-_How_to_Declare_an_Imperative.pdf">How to declare an imperative</a>)</h3>
+  <p><img src="images/monad.png" height="200"></p>
+</section>
+
+<section>
+  <h3>How many requests for hotel nightly rates?</h3>
+  <p style="margin: 0 200px"><img src="images/roomkey_london.png" height="350"></p>
+</section>
+
+<section>
+  <h3>Typical request processing</h3>
+  <p style="margin: 0 200px"><img src="images/request.png" height="350"></p>
+</section>
+
+<section>
+  <h3><em>Actual</em> request processing</h3>
+  <p style="margin: 0 200px"><img src="images/linear_request.png" height="350"></p>
+</section>
+
+<section>
+  <h3>Graph programming</h3>
+  Hadoop, Storm, etc.
+</section>
+
+<section>
+  <h3>Functional reactive programming</h3>
+  Elm, Bacon,
+</section>
+
+<section>
+  <h3>A relation is</h3>
+  <ul class="incremental">
+    <li>A set of tuples (-1, 22), (45, 46), etc.</li>
+    <li>A binary function (-1, 22) = true, (7, 3) = false</li>
+    <li>A (multi-valued) function (3, {4, 5, 6, etc.})</li>
+  </ul>
+</section>
+
+<section>
+  <h3>What you tested on</h3>
+  <code>posts[timestamp >= yesterday]
+-> 10</code>
+</section>
+
+<section>
+  <h3>What happens when you get /.'d</h3>
+  <code>posts[timestamp >= yesterday]
+-> 1,000,000</code>
+</section>
+
+<section>
+  <h3>What happened?</h3>
+  <p>You upgraded a library of functions in production without testing</p>
+</section>
+
+<section>
+  <h3><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.113.5640">What goes around comes around</a></h3>
+</section>
+
+<section>
+  <h3>IMS (ca 1968)</h3>
+  <p>Hierarchical, each record has key<br>
+    <img src="images/supplier_part.png" height="300"></p>
+</section>
+
+<section>
+  <h3>Example query</h3>
+  Find red parts supplied by supplier 16<br>
+<pre>
+Get unique Supplier (sno = 16)
+Until no-more {
+  Get next within parent (color = red)
+}
+Until no-more {
+  Get next Part (color = red)
+}</pre>
+</section>
+
+<section>
+  Stuff to write about:
+  State
+  Datomic and keeping all tuples around -> leads to how you can retract values and confluence
+
+  IO decisions
+  Early binding of IO decisions
+
+  Errors/exceptions
+  Recreate environment of a crash or bug
+  Long-lived programs (server programs)
+  Total functional programming
+
+  Concurrent computation
+  FRP, Elm, Bacon, ReactiveML
+  Hadoop, Babbage, Storm, Prismatic and rediscovering partial computation
+  Distributed consensus
 </section>
 
 <section>
@@ -114,12 +234,6 @@
     font-size: 60px;
     padding: 50px;
   }
-  blockquote:before {
-    content: open-quote;
-  }
-  blockquote:after {
-    content: close-quote;
-  }
 
   /* Figures are displayed full-page, with the caption
      on top of the image/video */
@@ -218,8 +332,8 @@
   * { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
   [role="note"] { display: none; }
   body {
-    width: 800px; height: 600px;
-    margin-left: -400px; margin-top: -300px;
+    width: 900px; height: 600px;
+    margin-left: -450px; margin-top: -300px;
     position: absolute; top: 50%; left: 50%;
     overflow: hidden;
     display: none;
@@ -246,8 +360,8 @@
   .view section {
     pointer-events: auto;
     position: static;
-    width: 800px; height: 600px;
-    margin: -150px -200px;
+    width: 900px; height: 600px;
+    margin: -200px -200px;
     float: left;
 
     transform: scale(.4);
