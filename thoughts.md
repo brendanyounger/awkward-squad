@@ -28,13 +28,22 @@ Brendan Younger
 [Bacon.js](https://github.com/raimohanska/bacon.js)
 [ReactiveML](http://rml.lri.fr/)
 
+[Long-lived daemons](http://blog.booking.com/non-daemons-advanced-daemons-that-arent-daemons.html)
+
 [BOOM](http://boom.cs.berkeley.edu/)
 [The declarative imperative](http://www.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-90.pdf)
 [The declarative imperative slides](http://db.cs.berkeley.edu/jmh/talks/podskeynote10.pdf)
 [Consistency analysis in Bloom](http://db.cs.berkeley.edu/papers/cidr11-bloom.pdf)
 
+[Datalog](http://www-users.cselabs.umn.edu/classes/Spring-2010/csci8211/Readings/datalog.pdf)
+[Clojure datalog](http://code.google.com/p/clojure-contrib/wiki/DatalogOverview)
+[Recursive query processing strategies](http://users.dcc.uchile.cl/~cgutierr/cursos/FDB/p16-bancilhon.pdf)
+[Kodkod, an SAT solver](http://alloy.mit.edu/kodkod/download.html)
+
 [What goes around comes around overview](http://web.eecs.umich.edu/~klefevre/eecs584/Handouts/Stonebraker-Hellerstein.pdf)
 [Datomic database values](http://www.infoq.com/presentations/Datomic-Database-Value)
+
+[Bacwn](https://github.com/fogus/bacwn)
 
 [PaxosLease](http://arxiv.org/pdf/1209.4187.pdf)
 [Paxos made live](http://www.cs.utexas.edu/~lorenzo/corsi/cs380d/papers/paper2-1.pdf)
