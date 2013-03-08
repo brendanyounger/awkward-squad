@@ -20,8 +20,8 @@
   <ul class="incremental">
     <li>IO</li>
     <li>Foreign-language calls (<i>see IO</i>)</li>
-    <li>Concurrency/distributed computation</li>
     <li>Exceptions/errors</li>
+    <li>Concurrency/distributed computation</li>
     <li>State</li>
   </ul>
 </section>
@@ -44,7 +44,7 @@ data Response =   RequestFailed
 </section>
 
 <section>
-  <h3>How many requests for hotel nightly rates?</h3>
+  <h3>What happens when you search?</h3>
   <p style="margin: 0 200px"><img src="images/roomkey_london.png" height="350"></p>
 </section>
 
@@ -60,12 +60,53 @@ data Response =   RequestFailed
 
 <section>
   <h3>Graph programming</h3>
-  Hadoop, Storm, etc.
+  <ul class="incremental">
+    <li><a href="http://thecomputersarewinning.com/post/Explaining-Babbage/">Babbage</a></li>
+    <li>
+      <img src="images/graph_ugly_graphs.png" height="200">
+      <a href="http://blog.getprismatic.com/blog/2012/10/1/prismatics-graph-at-strange-loop.html">Prismatic's graph</a>
+    </li>
+    <li>
+      <img src="images/topology.png" height="100">
+      <a href="http://storm-project.net/">Storm</a>
+    </li>
+</section>
+
+<section>
+  <h3>Graph programming</h3>
+  <p>Will be remembered as the C of distributed computing</p>
 </section>
 
 <section>
   <h3>Functional reactive programming</h3>
-  Elm, Bacon,
+  <p><a href="http://elm-lang.org/">Elm</a>, <a href="http://rml.lri.fr/">ReactiveML</a>, <a href="https://github.com/raimohanska/bacon.js">Bacon.js</a>
+    <br>
+    <img src="images/baconjs-sampledBy.png">
+    <br>
+    <a href="http://elm-lang.org/edit/examples/Reactive/ResizeYogi.elm">An example</a>
+  </p>
+</section>
+
+<section>
+  <h3>Solves(?) the problem of chaining events</h3>
+  <p>Implicit event order = state is hidden (see <a href="http://elm-lang.org/edit/examples/Intermediate/Mario.elm">Mario</a>)</p>
+  <!-- change gravity and see what happens -->
+</section>
+
+<section>
+  <h3>State management is <em>crucial</em></h3>
+  <ul>
+    <li><a href="http://www.infoq.com/presentations/Datomic-Database-Value">Values and persistance in Datomic</a></li>
+    <li><a href="http://web.eecs.umich.edu/~klefevre/eecs584/Handouts/Stonebraker-Hellerstein.pdf">What goes around comes around</a></li>
+    <!-- prolog? datalog? -->
+  </ul>
+</section>
+
+<!-- BOOM and the hellerstein papers -->
+
+<section>
+  <h3>Points of failure</h3>
+  <p style="margin: 0 200px"><img src="images/request_danger.png" height="350"></p>
 </section>
 
 <section>
