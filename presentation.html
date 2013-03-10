@@ -5,7 +5,13 @@
 
 <section>
   <h1><a href="http://en.wikipedia.org/wiki/Awkward_Squad">The Awkward Squad</a></h1>
-  <footer>by Brendan Younger<br>brendan@brendanyounger.com</footer>
+  <footer>
+    by Brendan Younger
+    <br>
+    brendan@brendanyounger.com
+    <br>
+    <a href="https://github.com/brendanyounger/awkward-squad">Source on GitHub</a>
+  </footer>
 </section>
 
 <section>
@@ -20,10 +26,16 @@
   <ul class="incremental">
     <li>IO</li>
     <li>Foreign-language calls (<i>see IO</i>)</li>
-    <li>Exceptions/errors</li>
     <li>Concurrency/distributed computation</li>
     <li>State</li>
+    <li>Exceptions/errors</li>
   </ul>
+</section>
+
+<section>
+  <blockquote>
+    <h1>IO</h1>
+  </blockquote>
 </section>
 
 <section>
@@ -41,6 +53,12 @@ data Response =   RequestFailed
 <section>
   <h3>Monads (or <a href="https://wiki.ittc.ku.edu/lambda/images/3/3b/Wadler_-_How_to_Declare_an_Imperative.pdf">How to declare an imperative</a>)</h3>
   <p><img src="images/monad.png" height="200"></p>
+</section>
+
+<section>
+  <blockquote>
+    <h1>Concurrency/distributed computation</h1>
+  </blockquote>
 </section>
 
 <section>
@@ -94,27 +112,40 @@ data Response =   RequestFailed
 </section>
 
 <section>
-  <h3>State management is <em>crucial</em></h3>
-  <ul>
-    <li><a href="http://www.infoq.com/presentations/Datomic-Database-Value">Values and persistance in Datomic</a></li>
-    <li><a href="http://web.eecs.umich.edu/~klefevre/eecs584/Handouts/Stonebraker-Hellerstein.pdf">What goes around comes around</a></li>
-    <!-- prolog? datalog? -->
-  </ul>
-</section>
-
-<!-- BOOM and the hellerstein papers -->
-
-<section>
-  <h3>Points of failure</h3>
-  <p style="margin: 0 200px"><img src="images/request_danger.png" height="350"></p>
+  <blockquote>
+    <h1>State</h1>
+  </blockquote>
 </section>
 
 <section>
-  <h3>A relation is</h3>
+  <h3><a href="http://people.cs.umass.edu/~yanlei/courses/CS691LL-f06/papers/SH05.pdf">What goes around comes around</a></h3>
+  Example query from IMS (ca <em>1968</em>)<br>
+  Find red parts supplied by supplier 16<br>
+<pre>
+Get unique Supplier (sno = 16)
+Until no-more {
+  Get next within parent (color = red)
+}
+Until no-more {
+  Get next Part (color = red)
+}</pre>
+</section>
+
+<section>
+  <figure>
+    <img src="images/computer-room.jpg">
+  </figure>
+</section>
+
+<section>
+  <h3><a href="http://en.wikipedia.org/wiki/First-order_logic#Algebraizations">Equivalent</a></h3>
   <ul class="incremental">
-    <li>A set of tuples (-1, 22), (45, 46), etc.</li>
-    <li>A binary function (-1, 22) = true, (7, 3) = false</li>
-    <li>A (multi-valued) function (3, {4, 5, 6, etc.})</li>
+    <li>First-order logic</li>
+    <li>SQL</li>
+    <li>NoSQL</li>
+    <li>Hash tables</li>
+    <li>Graph databases</li>
+    <li>car, cdr, cons</li>
   </ul>
 </section>
 
@@ -136,27 +167,26 @@ data Response =   RequestFailed
 </section>
 
 <section>
-  <h3><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.113.5640">What goes around comes around</a></h3>
+  <blockquote>
+    Thus spake Rich Hickey:<br>
+    <a href="http://www.infoq.com/presentations/Datomic-Database-Value">Code and data shall be treated the same</a>
+  </blockquote>
 </section>
 
 <section>
-  <h3>IMS (ca 1968)</h3>
-  <p>Hierarchical, each record has key<br>
-    <img src="images/supplier_part.png" height="300"></p>
+  <blockquote>
+    <h1>Errors</h1>
+  </blockquote>
 </section>
 
+<!-- BOOM and the hellerstein papers -->
+
 <section>
-  <h3>Example query</h3>
-  Find red parts supplied by supplier 16<br>
-<pre>
-Get unique Supplier (sno = 16)
-Until no-more {
-  Get next within parent (color = red)
-}
-Until no-more {
-  Get next Part (color = red)
-}</pre>
+  <h3>Points of failure</h3>
+  <p style="margin: 0 200px"><img src="images/request_danger.png" height="350"></p>
 </section>
+
+
 
 <section>
   Stuff to write about:
@@ -199,10 +229,6 @@ Until no-more {
 </section>
 
 <section>
-    <h2>Part two</h2>
-</section>
-
-<section>
     <figure> <!-- Figures are used to display images and videos fullpage -->
       <img src="http://placekitten.com/g/800/600">
       <figcaption>An image</figcaption>
@@ -211,14 +237,7 @@ Until no-more {
 </section>
 
 <section>
-    <figure> <!-- Videos are automatically played -->
-      <video src="http://videos-cdn.mozilla.net/brand/Mozilla_Firefox_Manifesto_v0.2_640.webm" poster="http://www.mozilla.org/images/about/poster.jpg"></video>
-      <figcaption>A video</figcaption>
-    </figure>
-</section>
-
-<section>
-    <h2>End!</h2>
+  <h1>End</h1>
 </section>
 
 <!-- Your Style -->
