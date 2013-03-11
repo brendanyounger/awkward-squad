@@ -10,7 +10,7 @@
     <br>
     brendan@brendanyounger.com
     <br>
-    <a href="https://github.com/brendanyounger/awkward-squad">Source on GitHub</a>
+    <a href="https://github.com/brendanyounger/awkward-squad">https://github.com/brendanyounger/awkward-squad</a>
   </footer>
 </section>
 
@@ -57,7 +57,7 @@ data Response =   RequestFailed
 
 <section>
   <blockquote>
-    <h1>Concurrency/distributed computation</h1>
+    <h1>Concurrency &amp; distributed computation</h1>
   </blockquote>
 </section>
 
@@ -108,7 +108,7 @@ data Response =   RequestFailed
 <section>
   <h3>Solves(?) the problem of chaining events</h3>
   <p>Implicit event order = state is hidden (see <a href="http://elm-lang.org/edit/examples/Intermediate/Mario.elm">Mario</a>)</p>
-  <!-- change gravity and see what happens -->
+  <div role="note">Change gravity and see what happens. How could you debug that?</div>
 </section>
 
 <section>
@@ -124,9 +124,6 @@ data Response =   RequestFailed
 <pre>
 Get unique Supplier (sno = 16)
 Until no-more {
-  Get next within parent (color = red)
-}
-Until no-more {
   Get next Part (color = red)
 }</pre>
 </section>
@@ -138,27 +135,39 @@ Until no-more {
 </section>
 
 <section>
-  <h3><a href="http://en.wikipedia.org/wiki/First-order_logic#Algebraizations">Equivalent</a></h3>
-  <ul class="incremental">
-    <li>First-order logic</li>
-    <li>SQL</li>
-    <li>NoSQL</li>
-    <li>Hash tables</li>
-    <li>Graph databases</li>
-    <li>car, cdr, cons</li>
+  <h3>Equivalent</h3>
+  <ul class="incremental" style="width: 70%">
+    <li><code>2 &lt; 3</code></li>
+    <li><code>exists (select * from lessthan where lhs = 2 and rhs = 3)</code></li>
+    <li><code>{ "doc-store":"lessthan", "facets":["lhs":"2", "rhs":"3"] }</code></li>
+    <li><code>lessthan[2].contains?(3)</code></li>
+    <li><code>3 ∈ (start a = node(2) match a-[:lessthan]->b return b)</code></li>
   </ul>
 </section>
 
 <section>
   <h3>What you tested on</h3>
-  <code>posts[timestamp >= yesterday]
--> 10</code>
+  <code><pre>posts[timestamp >= yesterday]
+
+=>
+
+[{ "title": "I like cats", "comments":[...] },
+ { "title": "I like dogs", "comments":[...] }]</pre></code>
+ <div role="note">Notice how querying the posts table looks like a function call</div>
 </section>
 
 <section>
   <h3>What happens when you get /.'d</h3>
-  <code>posts[timestamp >= yesterday]
--> 1,000,000</code>
+  <code><pre>posts[timestamp >= yesterday]
+
+=>
+
+[{ "title": "I like cats", "comments":[...] },
+ { "title": "I like dogs", "comments":[...] },
+ { "title": "I like gerbils", "comments":[...] },
+ { "title": "I like ferrets", "comments":[...] },
+ ...and 10 million more]</pre></code>
+ <div role="note">Twitter, anyone?</div>
 </section>
 
 <section>
@@ -168,8 +177,10 @@ Until no-more {
 
 <section>
   <blockquote>
-    Thus spake Rich Hickey:<br>
-    <a href="http://www.infoq.com/presentations/Datomic-Database-Value">Code and data shall be treated the same</a>
+    <h3>
+      <a href="http://www.youtube.com/watch?v=cWnmCu3U09w">Also sprach</a> Rich Hickey:<br>
+      <a href="http://www.infoq.com/presentations/Datomic-Database-Value">Code and data shall be treated the same</a>
+    </h3>
   </blockquote>
 </section>
 
@@ -179,61 +190,48 @@ Until no-more {
   </blockquote>
 </section>
 
-<!-- BOOM and the hellerstein papers -->
-
 <section>
   <h3>Points of failure</h3>
   <p style="margin: 0 200px"><img src="images/request_danger.png" height="350"></p>
 </section>
 
-
-
 <section>
-  Stuff to write about:
-  State
-  Datomic and keeping all tuples around -> leads to how you can retract values and confluence
-
-  IO decisions
-  Early binding of IO decisions
-
-  Errors/exceptions
-  Recreate environment of a crash or bug
-  Long-lived programs (server programs)
-  Total functional programming
-
-  Concurrent computation
-  FRP, Elm, Bacon, ReactiveML
-  Hadoop, Babbage, Storm, Prismatic and rediscovering partial computation
-  Distributed consensus
+  <figure>
+    <img src="images/transaction-processing.png">
+  </figure>
 </section>
 
 <section>
-    <h3>An incremental list</h3>
-    <ul class="incremental">
-      <li>Item 1
-      <li>Item 2
-      <li>Item 3
-    </ul>
-    <div role="note">Some notes. They are only visible using onstage shell.</div>
+  <h3><a href="http://en.wikipedia.org/wiki/Watchmen">Quis custodiet ipsos custodes?</a></h3>
+  <ul class="incremental">
+    <li><a href="http://www.jucs.org/jucs_10_7/total_functional_programming/jucs_10_07_0751_0768_turner.pdf">Turner's solution</a>:<br>Total functional programming</li>
+    <li><a href="http://blog.booking.com/non-daemons-advanced-daemons-that-arent-daemons.html">Booking.com's solution</a>:<br>SIGTERM early, SIGTERM often</li>
+    <li>Invoke <code>$DEITY</code>:<br>runit, monit, Upstart, procer, God, Circus, systemd, initd, launchd, etc.</li>
+  </ul>
 </section>
 
 <section>
   <blockquote>
-    Who's brave enough to fly into something we all keep calling a death sphere?
+    <h1>A solution</h1>
   </blockquote>
-  <details>
-    <p>In the onstage shell, notes scroll rather than overflow:</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac dui eu est feugiat lacinia sit amet nec leo. Mauris eu ipsum leo. Nulla mi odio, cursus sed sollicitudin non, fringilla id magna. Suspendisse sit amet posuere elit. Maecenas iaculis, turpis a placerat imperdiet, libero lorem feugiat nisi, nec tincidunt diam nibh sit amet massa. Vestibulum quis adipiscing tellus. Maecenas sollicitudin sodales pulvinar. Donec dui ipsum, bibendum facilisis consequat interdum, tempus ut mauris. Aliquam ut dolor nec odio scelerisque bibendum quis in neque. Aliquam dui dui, pulvinar quis fermentum quis, gravida eu augue. Nunc tristique dolor a urna pulvinar bibendum. Curabitur mollis cursus neque, in scelerisque metus porta non. Donec tempor enim in nibh vestibulum et convallis nisi malesuada. Duis ut lectus sed metus venenatis porttitor id pharetra quam. Suspendisse sapien turpis, ornare in molestie et, gravida eget turpis.
-    </p>
-  </details>
 </section>
 
 <section>
-    <figure> <!-- Figures are used to display images and videos fullpage -->
-      <img src="http://placekitten.com/g/800/600">
-      <figcaption>An image</figcaption>
-    </figure>
-    <div role="note">Kittens are so cute!</div>
+  <h3><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.93.8928">Out of the tarpit</a></h3>
+  <p>What is the <em>essential</em> difficulty inherent in the problem you're trying to solve?</p>
+</section>
+
+<section>
+  <h3><a href="http://db.cs.berkeley.edu/papers/eurosys10-boom.pdf">Berkeley Orders Of Magnitude</a></h3>
+  <img src="images/daedalus.png" height="400px">
+</section>
+
+<section>
+Awkward things:
+IO -> implicit, late binding, no cleaning up of errors
+Concurrency/distributed computation -> the actual graph of nodes is specified elsewhere. original essential idea behind Actors model
+State -> local state is available at beginning of timestep. no way to write a program that relies on synchronized state (unless explicit about it). easy to recreate environment of a crash or bug.
+Errors -> fail fast/never write clean up code in core logic (what error path?)
 </section>
 
 <section>
@@ -244,7 +242,7 @@ Until no-more {
 <!-- Define the style of your presentation -->
 
 <!-- Maybe a font from http://www.google.com/webfonts ? -->
-<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet'>
 
 <style>
   html, .view body { background-color: white; counter-reset: slideidx; }
@@ -252,7 +250,7 @@ Until no-more {
   /* A section is a slide. It's size is 800x600, and this will never change */
   section, .view head > title {
       /* The font from Google */
-      font-family: 'Oswald', arial, serif;
+      font-family: 'Raleway', arial, serif;
       font-size: 30px;
   }
 
@@ -267,6 +265,11 @@ Until no-more {
     color: white;
     text-align: center;
     margin: 1em 0 1em 0;
+  }
+
+  a, a:visited {
+    color: #B116DB;
+    text-decoration: none;
   }
 
   h1, h2 {
