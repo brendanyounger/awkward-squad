@@ -237,13 +237,37 @@ Until no-more {
 </section>
 
 <section>
-Awkward things:
-IO -> implicit, late binding, no cleaning up of errors
-Concurrency/distributed computation -> the actual graph of nodes is specified elsewhere. original essential idea behind Actors model
-State -> local state is available at beginning of timestep. no way to write a program that relies on synchronized state (unless explicit about it). easy to recreate environment of a crash or bug.
-Errors -> fail fast/never write clean up code in core logic (what error path?)
+  <h3>IO</h3>
+  <ul>
+    <li>Late-binding of IO sources/destinations (wanna instrument your network calls? no changes to the core logic!)</li>
+    <li>Easy to mock data inputs (testing much easier)</li>
+    <li>No error handling in core logic (bye bye exceptions and error codes)</li>
+  </ul>
 </section>
 
+<section>
+  <h3>Concurrency/distributed computation</h3>
+  <ul>
+    <li>Actor model without complecting concerns of where connections are made or how to parse input</li>
+    <li>Bloom language goes even farther with CALM principle where nodes can compute independently of each other and never give wrong answers</li>
+  </ul>
+</section>
+
+<section>
+  <h3>State</h3>
+  <ul>
+    <li>Recognition that the only thing that makes a node unique is its state</li>
+    <li>IO is modeled as state under the open-world assumption</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Errors</h3>
+  <ul>
+    <li>Crash-only software without the crash. (A timestep merely computes what it can.)</li>
+    <li>Bad state doesn't creep in unless it's from bad logic</li>
+  </ul>
+</section>
 <section>
   <h1>End</h1>
 </section>
