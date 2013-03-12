@@ -19,6 +19,7 @@
     "Don't let the awkward squad fire over me."<br>
     – Robert Burns
   </blockquote>
+  <div role="note">1796, Auld Lang Syne</div>
 </section>
 
 <section>
@@ -30,6 +31,7 @@
     <li>State</li>
     <li>Exceptions/errors</li>
   </ul>
+  <div role="note">Consistently updated paper by SPJ &amp; friends. Explore ways of handling them.</div>
 </section>
 
 <section>
@@ -48,11 +50,13 @@ data Response =   RequestFailed
                 | ReadSucceeded String
                 | WriteSucceeded
                 | ...</pre></code>
+  <div role="note">Original type of main function.  Notice that responses come in (and requests are issued before responses).  Leads to awkward code since cause and effect can be widely separated in code.</div>
 </section>
 
 <section>
   <h3>Monads (or <a href="https://wiki.ittc.ku.edu/lambda/images/3/3b/Wadler_-_How_to_Declare_an_Imperative.pdf">How to declare an imperative</a>)</h3>
   <p><img src="images/monad.png" height="200"></p>
+  <div role="note">Only monad tutorial worth reading. The old stick-the-code-in-the-datastructure trick.  Essentially folds code into a linear stream.  Not too hard to understand, but restriction to one stream leads to unsafePerformIO.  IO monad = sin bin.</div>
 </section>
 
 <section>
@@ -64,11 +68,13 @@ data Response =   RequestFailed
 <section>
   <h3>What happens when you search?</h3>
   <p style="margin: 0 200px"><img src="images/roomkey_london.png" height="350"></p>
+  <div role="note">A lot.</div>
 </section>
 
 <section>
   <h3>Typical request processing</h3>
   <p style="margin: 0 200px"><img src="images/request.png" height="350"></p>
+  <div role="note">This is simplified.</div>
 </section>
 
 <section>
@@ -88,11 +94,14 @@ data Response =   RequestFailed
       <img src="images/topology.png" height="100">
       <a href="http://storm-project.net/">Storm</a>
     </li>
+  </ul>
+  <div role="note">Whence the distinction between external and internal data flow? Which units are broken out and which are folded in?</div>
 </section>
 
 <section>
   <h3>Graph programming</h3>
   <p>Will be remembered as the C of distributed computing</p>
+  <div role="note">I used to think that assembler was the only way to write tight numeric code.  I was 16.  Then I tried to learn x86. Blech.</div>
 </section>
 
 <section>
@@ -103,6 +112,7 @@ data Response =   RequestFailed
     <br>
     <a href="http://elm-lang.org/edit/examples/Reactive/ResizeYogi.elm">An example</a>
   </p>
+  <div role="note">What if you didn't have to chose the divisions between graph nodes and function calls?  What if the event processing was implicit?  Surprisingly little good research done here when Elm came out with a too-simple implementation.</div>
 </section>
 
 <section>
