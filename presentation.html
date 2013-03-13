@@ -216,7 +216,7 @@ Until no-more {
   <ul class="incremental">
     <li><a href="http://www.jucs.org/jucs_10_7/total_functional_programming/jucs_10_07_0751_0768_turner.pdf">Turner's solution</a>:<br>Total functional programming</li>
     <li><a href="http://blog.booking.com/non-daemons-advanced-daemons-that-arent-daemons.html">Booking.com's solution</a>:<br>SIGTERM early, SIGTERM often</li>
-    <li>Invoke <code>$DEITY</code>:<br>runit, monit, Upstart, procer, God, Circus, systemd, initd, launchd, etc.</li>
+    <li>Invoke <code>$DEITY</code>:<br>runit, monit, Upstart, procer, God, circus, systemd, initd, launchd, etc.</li>
   </ul>
 </section>
 
@@ -243,12 +243,28 @@ Until no-more {
     <li>Easy to mock data inputs (testing much easier)</li>
     <li>No error handling in core logic (bye bye exceptions and error codes)</li>
   </ul>
+  <div role="note">
+    Show example for testing the chat.rb without a server<br>
+    <pre>
+    test_msg &lt;= [["from nowhere", ["internal", "your conscience", "How are you doing, Dave?"]]]
+
+    state do
+      table :test_msg
+      scratch :incoming
+      periodic :timer, 1
+    end
+
+    incoming &lt;= mcast
+    incoming &lt;= (test_msg * timer).lefts()
+
+  </pre>
+  </div>
 </section>
 
 <section>
   <h3>Concurrency/distributed computation</h3>
   <ul>
-    <li>Actor model without complecting concerns of where connections are made or how to parse input</li>
+    <li>Local computation can be run in parallel</li>
     <li>Bloom language goes even farther with CALM principle where nodes can compute independently of each other and never give wrong answers</li>
   </ul>
 </section>
@@ -258,7 +274,12 @@ Until no-more {
   <ul>
     <li>Recognition that the only thing that makes a node unique is its state</li>
     <li>IO is modeled as state under the open-world assumption</li>
+    <li>Previous timesteps are still available for testing</li>
   </ul>
+  <div role="note">
+    In server:<br>
+    stdio &lt;~ connect { |c| ["Connection from #{c.client} with name #{c.nick}"] }
+  </div>
 </section>
 
 <section>
@@ -268,6 +289,7 @@ Until no-more {
     <li>Bad state doesn't creep in unless it's from bad logic</li>
   </ul>
 </section>
+
 <section>
   <h1>End</h1>
 </section>
