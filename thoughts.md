@@ -53,7 +53,3 @@ Brendan Younger
 [Storm project](http://storm-project.net/)
 
 [Total functional programming](http://www.jucs.org/jucs_10_7/total_functional_programming/jucs_10_07_0751_0768_turner.pdf)
-
-## Bio
-
-Brendan, currently a programmer at Roomkey.com, enjoys playing around with new ideas in CS and programming languages.  This talk is an amalgamation of the papers and projects he's been reviewing in his spare time.
